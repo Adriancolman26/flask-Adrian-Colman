@@ -6,12 +6,12 @@ bp = Blueprint('lenguaje', __name__, url_prefix='/lenguajes')
 @bp. route('/')
 def actor():
     consulta = """
-     SELECT first_name,last_name FROM actor
+     SELECT first_name,last_name FROM lenguaje
      ORDER BY first_name ;
  """
     con = db.get_db()
     res = con.execute(consulta)
-    lista_actores = res.fetchall()
+    lista_lenguajes = res.fetchall()
     pagina = render_template('lenguaje.html',
-                            actores=lista_actores)
+                            lenguaje=lista_lenguajes)
     return pagina
