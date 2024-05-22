@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Lista de actores</title>
+    <link
+      rel="stylesheet"
+      type="text/css "
+      href="{{ url_for('static',filename='style.css')}}"
+    />
+  </head>
+  <body>
+    <h1>Lenguajes</h1>
+    <ul>
+      {% for lenguaje in Lenguajes %}
+      <li>{{lenguaje['name']}}</li>
+      {% endfor %}
+    </ul>
+  </body>
+</html>
