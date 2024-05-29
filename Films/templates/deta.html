@@ -1,0 +1,12 @@
+{% extend 'principal.html' %}
+{% %block titulo%}Lista de lengaujes{% endblock %}
+{% block encabezado %}Generos:{% endblock %}
+{% block contenido %}
+<ul>
+    {% for genero in generos %}
+        <li><a href="{{url_for('genero.detalle', id=genero['GenreId'])}}">
+            {{ genero['Name'] }}
+        </a></li>
+    {% endfor %}
+</ul>
+{% endblock %}

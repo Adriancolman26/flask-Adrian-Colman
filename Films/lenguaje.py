@@ -3,12 +3,12 @@ from . import db
 
 bp = Blueprint('lenguaje', __name__, url_prefix='/lenguajes')
 
-@bp. route('/')
-def actor():
+@db. route('/lenguaje')
+def lenguaje():
     consulta = """
-     SELECT first_name,last_name FROM lenguaje
-     ORDER BY first_name ;
- """
+     SELECT name FROM lenguage
+     ORDER BY name ASC; 
+     """
     con = db.get_db()
     res = con.execute(consulta)
     lista_lenguajes = res.fetchall()
