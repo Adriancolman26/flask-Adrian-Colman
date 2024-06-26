@@ -20,3 +20,6 @@ app.register_blueprint(actor.bp)
 
 from . import lenguaje
 app.register_blueprint(lenguaje.bp)
+
+from . import category
+app.register_blueprint(category.bp)

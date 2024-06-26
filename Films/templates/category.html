@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{% block titulo %} categorias {% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static',filename='style.css')}}" />
+    href="{{ url_for('static', filename='style.css') }}">
+  </head>
+  <body>
+    <h1>categorias</h1>
+    {% for categoria in categorias %}
+    <li>{{ categoria['name'] }}</li>
+    {% endfor %}
+  </body>
+</html>
