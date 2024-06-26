@@ -3,15 +3,15 @@ from . import db
 
 bp = Blueprint('lenguaje', __name__, url_prefix='/lenguajes')
 
-@db. route('/lenguaje')
+@bp.route('/')
 def lenguaje():
     consulta = """
-     SELECT name FROM lenguage
-     ORDER BY name ASC; 
-     """
+     SELECT name FROM language
+     ORDER BY name ASC ; 
+"""
     con = db.get_db()
     res = con.execute(consulta)
     lista_lenguajes = res.fetchall()
     pagina = render_template('lenguaje.html',
-                            lenguaje=lista_lenguajes)
+                            lenguajes=lista_lenguajes)
     return pagina
