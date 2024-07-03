@@ -6,7 +6,7 @@ bp = Blueprint('lenguaje', __name__, url_prefix='/lenguajes')
 @bp.route('/')
 def lenguaje():
     consulta = """
-     SELECT name FROM language
+     SELECT name, language_id FROM language
      ORDER BY name ASC ; 
 """
     con = db.get_db()
@@ -19,22 +19,22 @@ def lenguaje():
 @bp.route('/<int:id>')
 def detalle(id):
     consulta = """
-        SELECT name FROM language
-        WHERE lenguage_id = ?
+        SELECT name, language_id FROM language
+        WHERE language_id = ?
     """
 
     con = db.get_db()
     res = con.execute(consulta, (id,))
-    lista_lenguajes = res.fetchone()
+    lenguaje = res.fetchone()
     consulta2 = """
-        SELECT title as titulo, f.film_id FROM film f
-        JOIN film_actor fil on f.film_id = fil.film_id
-        WHERE fil.actor_id = ?
+        SELECT f.title as titulo, l.language_id FROM film f
+        JOIN language l on l.language_id = f.language_id
+        WHERE l.language_id = ?
     """
 
     res = con.execute(consulta2, (id,))
     lista_peliculas = res.fetchall()
-    paginaLenguaje = render_template("detallesLengz.html",
-                                  lista_lenguajes=lista_lenguajes,
+    paginaLenguaje = render_template("detallesLenguaje.html",
+                                  lenguaje=lenguaje,
                                   peliculas=lista_peliculas)
     return paginaLenguaje

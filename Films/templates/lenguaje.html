@@ -12,8 +12,8 @@
     <ul>
       {% for lenguaje in lenguajes %}
       <li>
-        <a href="{{url_for('actor.detalle', id=lenguaje['language_id'])}}">
-          {{language['name'] }}</a
+        <a href="{{url_for('lenguaje.detalle', id=lenguaje['language_id'])}}">
+          {{lenguaje['name'] }}</a
         >
       </li>
       {% endfor %}

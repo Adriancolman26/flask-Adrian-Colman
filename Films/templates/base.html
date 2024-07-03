@@ -1,12 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=>, initial-scale=1.0" />
-    <title>{% block titulo %} {% endblock %}</title>
+    <title>{% block titulo %}{% endblock %}</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
   </head>
-  <body>
-    <h1>{% block encabezado %} {% endblock %}</h1>
-    {% block contenido %} {% endblock %}
+  <body class="Fondo">
+    <h1>{% block encabezado %}{% endblock %}</h1>
+    {% block contenido %}{% endblock %}
   </body>
 </html>

@@ -1,0 +1,21 @@
+{% extends 'base.html' %} {% block titulo %} Detalle Peliculas {% endblock %} {%
+block encabezado %}{{pelicula['title']}} {% endblock %} {% block contenido %}
+<h3>
+  Titulo: {{pelicula['title']}} <br />
+  Descripcion: {{pelicula['description']}} <br />
+  Rating: {{pelicula['rating']}} <br />
+  Año de lanzamiento: {{pelicula['release_year']}} <br />
+  duración de la pelicula: {{pelicula['length']}} <br />
+</h3>
+<h3>Datos de la pelicula</h3>
+<ul>
+  {% for pelicula in peliculas %}
+  <li>
+    <a href="{{url_for('pelicula.detalle', id=pelicula['pelicula_id'])}}"
+      >{{pelicula['title'] }} {{pelicula['description'] }} {{pelicula['rating']
+      }} {{pelicula['release_year'] }} {{pelicula['length'] }}
+    </a>
+  </li>
+  {% endfor %}
+</ul>
+{% endblock %}

@@ -3,12 +3,15 @@
   <head>
     <title>{% block titulo %} categorias {% endblock %}</title>
     <link rel="stylesheet" href="{{ url_for('static',filename='style.css')}}" />
-    href="{{ url_for('static', filename='style.css') }}">
   </head>
   <body>
     <h1>categorias</h1>
     {% for categoria in categorias %}
-    <li>{{ categoria['name'] }}</li>
+    <li>
+      <a href="{{url_for('categoria.detalle', id=categoria['category_id'])}}">
+        {{categoria['name'] }}</a
+      >
+    </li>
     {% endfor %}
   </body>
 </html>

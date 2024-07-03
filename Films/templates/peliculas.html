@@ -1,0 +1,10 @@
+{% extends 'base.html' %} {% block title %} Actores {% endblock %} {% block
+encabezado %} {{ categoria['name'] ] }} {% endblock %} {% block contenido %}
+
+<ul>
+    {% for pelicula in peliculas%}
+    <a href="{{url_for('peliculas.detalle", id="pelicula['film_id'])}}">
+    <li>{{pelicula['title']}}</li>
+    {% endfor %}
+</ul>
+{% endblock %}
